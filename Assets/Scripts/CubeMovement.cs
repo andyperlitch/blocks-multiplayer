@@ -24,6 +24,11 @@ public class CubeMovement : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		if (!isLocalPlayer) {
+			Destroy(this);
+			return;
+		}
+
 		localRigidBody = GetComponent<Rigidbody>();
 		mainCamera = Camera.main.transform;
 
